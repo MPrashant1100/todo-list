@@ -2,7 +2,6 @@ import { apiStatusCodes } from "@/contants";
 import User from "@/database/models/User";
 import { connectDB, router, routerHandler } from "@/middleware/api";
 import { sendAPIResponse } from "@/utils";
-import { setDefaultAutoSelectFamily } from "net";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // Add a user

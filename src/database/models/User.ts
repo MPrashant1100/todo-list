@@ -21,7 +21,7 @@ const userSchema: Schema<UserDocumentModel> = new Schema<UserDocumentModel> (
 const User: Model<UserDocumentModel> = 
     mongoose.models?.User || 
     mongoose.model<UserDocumentModel> (
-        databaseModels.USER,
+        databaseModels.USER,    // Object key create at contants folder
         userSchema,
     )
 
