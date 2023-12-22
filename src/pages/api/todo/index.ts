@@ -4,6 +4,7 @@ import { connectDB, router, routerHandler } from "@/middleware/api";
 import { sendAPIResponse } from "@/utils";
 import { NextApiRequest, NextApiResponse } from "next";
 
+// Add a Todo Items
 const addTodo = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { title, description } = req.body;
@@ -31,6 +32,31 @@ const addTodo = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-router.use(connectDB).post(addTodo);
+// Get all Todo item
+
+const getAllTodo = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    const todos = await Todo.find({});
+
+    return res.status(apiStatusCodes.OKAY).json(
+      sendAPIResponse({
+        status: true,
+        message: "Todos fetched successfully",
+        data: todos,
+      })
+    );
+  } catch (error) {
+    console.log( error );
+    return res.status(apiStatusCodes.INTERNAL_SERVER_ERROR).json(
+      sendAPIResponse({
+        status: false,
+        message: "Server Error",
+        error,
+      })
+    )
+  }
+}
+
+router.use(connectDB).post(addTodo).get(getAllTodo);
 
 export default routerHandler;
