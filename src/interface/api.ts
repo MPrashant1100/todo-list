@@ -6,8 +6,15 @@ export interface APIResponseProps {
 }
 
 export interface UserDocumentModel {
-  firstName: string;
-  contact: string;
+  userName: string;
+  fullName: string;
+  email: string;
+  avatar: string;
+  password: string;
+}
+
+export interface VideoDocumentModel {
+  
 }
 
 export type GetAllSubscribersQueryType = {

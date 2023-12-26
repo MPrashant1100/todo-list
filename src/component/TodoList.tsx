@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 
 interface Todo {
+  _id: string;
   title: string;
   description: string;
   // Add more properties if there are other fields in your todo object
@@ -19,7 +20,6 @@ const TodoList = () => {
       const response = await axios.post("http://localhost:3000/api/todo", todo);
       console.log("Todo saved:", response.data);
     } catch (error) {
-      // Handle any errors that occur during the POST request
       console.error("Error saving todo:", error);
     }
   };
@@ -28,7 +28,7 @@ const TodoList = () => {
     try {
       const response = await axios.get("http://localhost:3000/api/todo");
       console.log("Todos response:", response.data);
-      setTodos(response.data);
+      setTodos(response.data.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
     }
@@ -65,10 +65,10 @@ const TodoList = () => {
       <div>
         <h2>Todo List</h2>
         <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              {todo.title} -
-              {todo.description}
+          {todos.map((todo) => (
+            <li key={todo._id}>
+              <h1>{todo.title}</h1> 
+              <p> {todo.description} </p>
             </li>
           ))}
         </ul>

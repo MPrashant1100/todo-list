@@ -5,11 +5,31 @@ import mongoose, { Model, Schema } from 'mongoose';
 // Create Schema 
 const userSchema: Schema<UserDocumentModel> = new Schema<UserDocumentModel> (
     {
-        firstName: {
+        userName: {
             type: String,
-            required: true
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
         },
-        contact: {
+        fullName: {
+            type: String,
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            lowercase: true,
+            trim: true,
+        },
+        avatar: {
+            type: String,
+            required: true,
+        },
+        password: {
             type: String,
             required: true
         }

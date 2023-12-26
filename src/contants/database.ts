@@ -1,5 +1,6 @@
 const databaseModels = {
-    USER: 'User'
+    USER: 'User',
+    VIDEO: 'Video'
 }
 
 export { databaseModels }
