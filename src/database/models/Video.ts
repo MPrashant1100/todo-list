@@ -1,7 +1,6 @@
 import { databaseModels } from "@/contants";
 import { VideoDocumentModel } from "@/interface";
 import mongoose, { Model, Schema } from "mongoose";
-import { ST } from "next/dist/shared/lib/utils";
 
 const videoSchema: Schema<VideoDocumentModel> = new Schema<VideoDocumentModel>(
   {
