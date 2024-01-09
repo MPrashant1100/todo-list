@@ -31,7 +31,7 @@ const userSchema: Schema<UserDocumentModel> = new Schema<UserDocumentModel> (
         },
         password: {
             type: String,
-            //required: true
+            required: true
         }
     },
     { timestamps: true },
